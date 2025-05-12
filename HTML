@@ -1,0 +1,66 @@
+HTML (index.html)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis - Political Speeches</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis of Political Speeches</h1>
+
+        <!-- Upload Form -->
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label>Select Speech Files:</label><br>
+            <input type="file" name="files" multiple required><br><br>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+
+        <!-- Results Table -->
+        <div class="results">
+            <h2>Sentiment Results</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Speech Name</th>
+                        <th>Sentiment Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example static row, replaced by server results -->
+                    <tr>
+                        <td>1963</td>
+                        <td>I Have a Dream</td>
+                        <td>0.78</td>
+                    </tr>
+                    <tr>
+                        <td>2001</td>
+                        <td>Post-9/11 Address</td>
+                        <td>-0.20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
+
+---
+
+This HTML page assumes:
+
+It’s served by a backend that handles file upload and analysis (e.g., Flask or Django).
+
+You link a CSS file called styles.css for styling (already shared above).
+
+The backend will dynamically populate the results <tbody> with real sentiment scores.
+
+
+
+---
+
+Would you like the Flask backend code that handles this upload, processes the sentiment, and returns results?
