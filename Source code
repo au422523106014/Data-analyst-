@@ -1,0 +1,36 @@
+import os
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from nltk.sentiment import SentimentIntensityAnalyzer
+from nltk.tokenize import sent_tokenize
+import nltk
+
+nltk.download('vader_lexicon')
+nltk.download('punkt')
+
+# Load the Sentiment Analyzer
+sia = SentimentIntensityAnalyzer()
+
+# Sample data: Replace this with your dataset of speeches
+# The CSV should have: 'speech', 'speaker', 'date' (YYYY-MM-DD format)
+df = pd.read_csv('political_speeches.csv', parse_dates=['date'])
+
+# Analyze sentiment
+def analyze_sentiment(text):
+    scores = sia.polarity_scores(text)
+    return scores['compound']
+
+# Apply sentiment analysis
+df['sentiment'] = df['speech'].apply(analyze_sentiment)
+
+# Extract year for temporal analysis
+df['year'] = df['date'].dt.year
+
+# Aggregate sentiment by year
+yearly_sentiment = df.groupby('year')['sentiment'].mean().reset_index()
+
+# Plot sentiment over time
+plt.figure(figsize=(12, 6))
+sns.lineplot(data=yearly_sentiment, x='year', y='sentiment', marker='o')
+plt.title('Sentiment Shift
