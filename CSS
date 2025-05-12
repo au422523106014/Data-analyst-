@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis of Political Speeches</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis of Historical Political Speeches</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="speech_files" multiple>
+            <button type="submit">Analyze</button>
+        </form>
+
+        <div class="results">
+            <h2>Sentiment Results:</h2>
+            <!-- This would be dynamically filled by backend -->
+            <table>
+                <thead>
+                    <tr>
+                        <th>Year</th>
+                        <th>Speech Title</th>
+                        <th>Sentiment Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Example row -->
+                    <!-- <tr><td>1963</td><td>MLK Speech</td><td>0.75</td></tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
